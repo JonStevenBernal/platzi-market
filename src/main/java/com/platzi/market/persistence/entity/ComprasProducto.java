@@ -4,9 +4,7 @@ import lombok.Getter;
 import lombok.Setter;
 import org.springframework.format.number.money.MonetaryAmountFormatter;
 
-import javax.persistence.Embedded;
-import javax.persistence.Entity;
-import javax.persistence.Table;
+import javax.persistence.*;
 import java.math.BigDecimal;
 
 @Getter
@@ -14,7 +12,7 @@ import java.math.BigDecimal;
 @Entity
 @Table(name = "compras_productos")
 public class ComprasProducto {
-    @Embedded // Clave primaria compuesta dada por otra clase
+    @EmbeddedId // Clave primaria compuesta dada por otra clase
     private ComprasProductoPK id;
 
     private Integer cantidad;
@@ -22,4 +20,13 @@ public class ComprasProducto {
     private BigDecimal total;
 
     private Boolean estado;
+
+    @ManyToOne
+    @JoinColumn(name = "id_compra", insertable = false, updatable = false)
+    private Compra compra;
+
+    @ManyToOne
+    @JoinColumn(name = "id_producto", insertable = false, updatable = false)
+    private Producto producto;
+
 }

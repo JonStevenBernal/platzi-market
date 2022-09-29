@@ -30,4 +30,8 @@ public class Producto {
     private Integer cantidadStock;
 
     private Boolean estado;
+
+    @ManyToOne // De muchos a uno
+    @JoinColumn(name = "id_categoria", insertable = false, updatable = false) //No se borra ni se actualiza una nueva categoria, Recupera a que categoria pertenece un producto
+    private Categoria categoria;
 }
