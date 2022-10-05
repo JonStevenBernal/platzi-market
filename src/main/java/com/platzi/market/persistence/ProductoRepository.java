@@ -13,8 +13,16 @@ import java.util.Optional;
 
 @Repository // lase que interactua con la base de datos
 public class ProductoRepository implements ProductRepository {
-    private ProductoCrudRepository productoCrudRepository;
-    private ProductMapper mapper;
+//    @Autowired // Sede el control  a spring para crear instancias
+    private final ProductoCrudRepository productoCrudRepository;
+//    @Autowired
+    private final ProductMapper mapper;
+    @Autowired
+    public ProductoRepository(ProductoCrudRepository productoCrudRepository, ProductMapper mapper) {
+        this.productoCrudRepository = productoCrudRepository;
+        this.mapper = mapper;
+    }
+
     @Override
     public List<Product> getAll() {
         List<Producto> productos = (List<Producto>) productoCrudRepository.findAll();
@@ -47,7 +55,7 @@ public class ProductoRepository implements ProductRepository {
     public Optional<List<Producto>> getNombres(String nombre) {
         return productoCrudRepository.findByNombreOrderByNombreAsc(nombre);
     }
-    
+
     // Eliminar
     @Override
     public void delete(int productId) {
