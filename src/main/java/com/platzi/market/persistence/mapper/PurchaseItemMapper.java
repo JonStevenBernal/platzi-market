@@ -16,13 +16,13 @@ public interface PurchaseItemMapper {
 //            @Mapping(source = "total", target = "total"), // Not is necessary because have the same name
 
     })
-    PurchaseItem toPurchaseItem(ComprasProducto comprasProducto);
+    PurchaseItem toPurchaseItem(ComprasProducto producto);
 
     @InheritInverseConfiguration // The conversion use Mappings already declared
     @Mappings({
-            @Mapping(targer = "compra", ignore = true),
+            @Mapping(target = "compra", ignore = true),
             @Mapping(target = "producto", ignore = true),
             @Mapping(target = "id.idCompra", ignore = true)
     })
-    ComprasProducto toComprasProducto(PurchaseItem purchaseItem);
+    ComprasProducto toComprasProducto(PurchaseItem item);
 }

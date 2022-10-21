@@ -32,6 +32,7 @@ public class Compra {
     @JoinColumn(name = "id_cliente", insertable = false, updatable = false) // No permite crear clientes atravez de esta relacion
     private Cliente cliente;
 
-    @OneToMany(mappedBy = "compra")
+//    @OneToMany(mappedBy = "compra", cascade = {CascadeType.ALL})
+    @OneToMany(mappedBy = "compra", cascade = {CascadeType.ALL}) // All Process of DB includes his products
     private List<ComprasProducto> productos;
 }
