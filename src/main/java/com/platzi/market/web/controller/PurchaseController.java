@@ -19,19 +19,15 @@ public class PurchaseController {
     public PurchaseController(PurchaseService purchaseService) {
         this.purchaseService = purchaseService;
     }
-//    @GetMapping("/all")
-//    public ResponseEntity<List<Purchase>> getAll() {
-//        try {
-//            List<Purchase> purchases = purchaseService.getAll();
-//            return new ResponseEntity<>(purchases, HttpStatus.OK);
-//        } catch (Exception e) {
-//            return new ResponseEntity<>(HttpStatus.NOT_FOUND);
-//        }
-//
-//    }
+
     @GetMapping("/all")
     public ResponseEntity<List<Purchase>> getAll() {
-        return new ResponseEntity<>(purchaseService.getAll(), HttpStatus.OK);
+        try {
+            List<Purchase> purchases = purchaseService.getAll();
+            return new ResponseEntity<>(purchases, HttpStatus.OK);
+        } catch (Exception e) {
+            return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+        }
     }
 
     @GetMapping("/client/{idClient}")
