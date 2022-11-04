@@ -16,6 +16,7 @@ package com.platzi.market.web.config;
 //        scheme = "bearer"
 //)
 //@EnableSwagger2
+
 public class SwaggerConfig {
 //    @Bean
 //    public Docket api() {

@@ -5,7 +5,7 @@ plugins {
 }
 
 group = 'com.platzi'
-version = '0.0.1-SNAPSHOT'
+version = '1.0' // Version API
 sourceCompatibility = '11'
 
 repositories {
@@ -42,6 +42,8 @@ dependencies {
 	implementation 'org.mapstruct:mapstruct:1.5.2.Final'
 	annotationProcessor 'org.mapstruct:mapstruct-processor:1.5.2.Final'
 
+	// https://mvnrepository.com/artifact/org.springdoc/springdoc-openapi-security
+	implementation group: 'org.springdoc', name: 'springdoc-openapi-security', version: '1.6.6'
 
 
 	testCompileOnly 'org.projectlombok:lombok:1.18.24'
