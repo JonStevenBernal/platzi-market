@@ -8,6 +8,13 @@ package com.platzi.market.web.config;
 //import springfox.documentation.swagger2.annotations.EnableSwagger2;
 
 //@Configuration
+//@OpenAPIDefinition(info = @Info(title = "My API", version = "v1"))
+//@SecurityScheme(
+//        name = "bearerAuth",
+//        type = SecuritySchemeType.HTTP,
+//        bearerFormat = "JWT",
+//        scheme = "bearer"
+//)
 //@EnableSwagger2
 public class SwaggerConfig {
 //    @Bean
